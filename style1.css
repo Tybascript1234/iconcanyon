@@ -1993,6 +1993,8 @@ input {
     /* font-size: 17px; */
     cursor: pointer;
     color: #697384;
+    width: auto;
+    justify-content: left;
   }
   .menu-fmo-div:hover {
     background-color: rgba(0, 0, 0, 0.027);
