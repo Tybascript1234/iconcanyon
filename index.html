@@ -291,6 +291,7 @@
 
         <!-- ///// -->
         <div class="tool box-shadow xox" id="content-container" style="display: none;">
+          <button class="ffr tool-text show-btn Tools_ion-icon" data-target="wwc18"><ion-icon name="menu-outline" title="Create"></ion-icon></button>
           <!-- Screen -->
            <div class="Screen-div xox">
             <div class="Screen-div-div">
@@ -334,10 +335,10 @@
             <div class="tool1-div" id="svg-code-container"></div>
             <a class="tool1-span">SVG Code</a>
           </div>
-          <div class="tool2">
+          <div class="tool2 xox visible" id="wwc18">
               <div>
-            <div class="tool2-div tool-span ripple-btn tool2-div-divs" id="uploads-left" style="font-size: 20px;"><span title="Free">+4</span></div>
-            <div class="tool2-div tool-span ripple-btn tool2-div-divs" id="" onmousedown="createRipple(event)"><img style="width: 32px;height: 32px;" src="WordPress.png" alt=""></div>
+            <div class="tool2-div tool-span ripple-btn tool2-div-divs jo" id="uploads-left" style="font-size: 20px;"><span title="Free">+4</span><button class="tool-text ripple-btn hide-btn" data-target="wwc18" onmousedown="createRipple(event)"><ion-icon name="close-outline" title="Create"></ion-icon></button></div>
+            <div class="tool2-div tool-span ripple-btn tool2-div-divs" id="" onmousedown="createRipple(event)"><img style="width: 32px;height: 32px;" src="WordPress.png" alt=""><ic class="tool-text">Account</ic></div>
             <label for="" id="file-input-button" class="tool2-div ripple-btn" onmousedown="createRipple(event)"><ion-icon id="Uploade" name="cloud-upload-outline" title="Upload"></ion-icon><ic class="tool-text">Upload</ic></label>
             <input type="file" id="file-input" accept="image/*" style="display: none;">
             <div class="tool2-div ripple-btn tool2-div-divs" id="generate-svg-button" onmousedown="createRipple(event)"><ion-icon name="color-wand-outline" title="Create"></ion-icon><ic class="tool-text">Create</ic></div>
@@ -353,7 +354,7 @@
             <div class="onclick_tool">
               <input type="color" id="color-picker" style="display: none;">
             <div class="tool2-div tool-span ripple-btn tool2-div-divs show-btn" data-target="wwc8" id="" onmousedown="createRipple(event)"><ion-icon name="book-outline"></ion-icon><ic class="tool-text">user's Guide</ic></div>
-            <div class="tool2-div tool-span ripple-btn tool2-div-divs" id="" onmousedown="createRipple(event)"><ion-icon title="Print image" name="print-outline" style="font-size: 22px;"></ion-icon><ic class="tool-text"></ic></div>
+            <div class="tool2-div tool-span ripple-btn tool2-div-divs" id="" onmousedown="createRipple(event)"><ion-icon title="Print image" name="print-outline" style="font-size: 22px;"></ion-icon><ic class="tool-text">Print</ic></div>
             <div class="tool2-div tool-span ripple-btn tool2-div-divs on-lock" id="" onmousedown="createRipple(event)"><ion-icon title="Cut out background of image" name="image-outline" style="font-size: 22px;"></ion-icon><ic class="tool-text"></ic></div>
             <label for="color-picker" class="tool2-div tool-span ripple-btn tool2-div-divs color-div" id="" onmousedown="createRipple(event)"><a class="tool2-div_color" style="background: linear-gradient(to right, #ffd662, #e25283, #ff776b, #9e82cd);"></a><ic class="tool-text">Image color</ic></label>
           </div>
