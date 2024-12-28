@@ -3384,6 +3384,7 @@ body.night-mode .result-item ion-icon {
       border-radius: 25px;
     }
     .ffr {
+      cursor: context-menu;
       position: absolute;
       margin: 10px;
       padding: 7px;
@@ -3398,6 +3399,10 @@ body.night-mode .result-item ion-icon {
       background: white;
       outline: solid 1px #ccc;
       right: 0;
+    }
+    body .om {
+      justify-content: space-between;
+      align-items: center;
     }
   }
 
