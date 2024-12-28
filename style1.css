@@ -1827,6 +1827,7 @@ input {
     height: 34px;
     border-radius: 50px;
     margin-right: 10px;
+    filter: hue-rotate(298deg);
   }
   .lon my-start {
     font-weight: 500;
@@ -3096,7 +3097,10 @@ body.night-mode .result-item ion-icon {
     margin-left: 30px;
   }
   #content-container.fullscreen .tool2{
-    /* padding-right: 25px; */
+    padding-right: 20px;
+    margin-right: 0;
+    background-color: white;
+    z-index: 50;
   }
   #content-container.fullscreen .tool-for{
     margin-left: 15px;
@@ -3180,7 +3184,7 @@ body.night-mode .result-item ion-icon {
 
   /* //-// */
   @media screen and (max-width:600px) {
-    body button,div,a {
+    body button,div,a,.tool2-div,.tool-for-div,.tool-full,.full-screen-div,.history-Upload,.coffee-button {
       cursor: context-menu;
     }
     .noons {
@@ -3252,6 +3256,7 @@ body.night-mode .result-item ion-icon {
       text-align: center;
     }
     .tool2 {
+      display: block;
       z-index: 10;
       padding-top: 10px;
       margin: 18px;
@@ -3335,8 +3340,8 @@ body.night-mode .result-item ion-icon {
       transform: translate(-50%, 50%);
       animation: popup 0.3s ease forwards;
     }
-     .tool1-div {
-      height: 50.5%;
+     html #content-container.fullscreen .tool1-div{
+      height: 55.5%;
       box-shadow: 0px -1px 0px #ccc;
     }
     .Results {
@@ -3357,6 +3362,42 @@ body.night-mode .result-item ion-icon {
     }
     .menu2 div,button {
       cursor: context-menu;
+    }
+    body .tool-span img {
+      margin-right: 10px;
+    }
+    body .history,.Usage {
+      margin-top: 40px;
+    }
+    body #content-container.fullscreen .tool2 {
+      padding-right: 0;
+    }
+    body #content-container.fullscreen #uploads-left {
+      justify-content: space-between;
+    }
+    body .jo button {
+      border: none;
+      cursor: context-menu;
+      /* padding: 8px; */
+      width: 32px;
+      height: 32px;
+      border-radius: 25px;
+    }
+    .ffr {
+      position: absolute;
+      margin: 10px;
+      padding: 7px;
+      /* width: 36px; */
+      /* height: 37px; */
+      border-radius: 24px;
+      border: none;
+      z-index: 30;
+      font-size: 22px;
+      display: flex;
+      justify-content: center;
+      background: white;
+      outline: solid 1px #ccc;
+      right: 0;
     }
   }
 
