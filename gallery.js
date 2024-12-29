@@ -48,29 +48,35 @@ document.addEventListener("DOMContentLoaded", async () => {
         const searchText = searchInput.value.trim().toLowerCase();
         const resultsFragment = document.createDocumentFragment();
         let filteredImages = [];
-
+    
         for (const imageData of images) {
             const { imageUrl, name, category } = imageData;
             if (name.toLowerCase().includes(searchText)) {
                 filteredImages.push(imageData);
-
+    
                 const imageContainer = document.createElement("div");
                 imageContainer.className = "image-container";
                 imageContainer.setAttribute("onclick", "createRipple(event)");
+    
                 const image = document.createElement("img");
                 const imageSrc = await fetchImage(imageUrl);
                 image.src = imageSrc;
                 image.draggable = false;
+    
                 const nameElement = document.createElement("div");
+                nameElement.className = "image-name"; // تأكد من أن هذا العنصر يحتوي على هذه الكلاس
                 nameElement.textContent = name;
                 nameElement.title = name;
+    
                 const downloadButton = document.createElement("button");
                 downloadButton.innerHTML = '<ion-icon name="ellipsis-horizontal"></ion-icon>';
                 downloadButton.className = "download-btn";
                 downloadButton.addEventListener("click", (event) => showDownloadPopup(event, imageSrc, name));
+    
                 imageContainer.appendChild(image);
                 imageContainer.appendChild(nameElement);
                 imageContainer.appendChild(downloadButton);
+    
                 switch (category) {
                     case "category1":
                         category1Container.appendChild(imageContainer);
@@ -85,21 +91,21 @@ document.addEventListener("DOMContentLoaded", async () => {
                         galleryContainer.appendChild(imageContainer);
                         break;
                 }
-
+    
                 // Add event listener for copying image name
                 imageContainer.addEventListener("click", () => copyImageName(nameElement));
-
+    
                 // Add search result item
                 const resultItem = document.createElement("button");
                 resultItem.className = "result-item ripple-btn";
                 resultItem.setAttribute("onmousedown", "createRipple(event)");
                 resultItem.innerHTML = `
                     <div class="result-item-div">
-                    <div class="icon-container"><ion-icon name="search-outline"></ion-icon></div>
-                    <div class="image-name">${name}</div>
+                        <div class="icon-container"><ion-icon name="search-outline"></ion-icon></div>
+                        <div class="image-name">${name}</div>
                     </div>
                     <div>
-                    <button class="result-item-button notranslate ripple-btn" onmousedown="createRipple(event)"></button>
+                        <button class="result-item-button notranslate ripple-btn" onmousedown="createRipple(event)"></button>
                     </div>
                 `;
                 resultItem.addEventListener("click", () => {
@@ -110,11 +116,11 @@ document.addEventListener("DOMContentLoaded", async () => {
                 resultsFragment.appendChild(resultItem);
             }
         }
-
+    
         searchResults.innerHTML = "";
         searchResults.appendChild(resultsFragment);
         containerCount.textContent = filteredImages.length;
-    }
+    }    
 
     function copyImageName(nameElement) {
         const originalName = nameElement.textContent;
@@ -350,3 +356,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     searchInput.focus();
     updateTotalDownloads();
 });
+
+
+
+
+
+
+
