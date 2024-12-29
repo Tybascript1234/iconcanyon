@@ -126,10 +126,44 @@
                   </div>
 
                   <script>
-document.querySelectorAll('#alphabet-buttons a').forEach(button => {
+document.querySelectorAll('#alphabet-buttons a').forEach((button, index, buttons) => {
+    // إضافة خانة اختيار إلى كل رابط
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.id = 'checkbox';  // إضافة id ثابت هنا
+    button.appendChild(checkbox);
+
+    // إضافة حدث النقر لتفعيل/إلغاء تفعيل الـ checkbox عند النقر على الرابط
     button.addEventListener('click', function(e) {
-        e.preventDefault();
+        e.preventDefault();  // منع التنقل عند النقر على الرابط
         filterByLetter(button.textContent.toLowerCase());
+
+        // إلغاء تفعيل الـ checkbox لكل الروابط
+        buttons.forEach((btn) => {
+            const checkbox = btn.querySelector('input[type="checkbox"]');
+            if (checkbox) {
+                checkbox.checked = false;
+            }
+        });
+
+        // تفعيل الـ checkbox فقط للرابط الحالي
+        checkbox.checked = true;
+    });
+
+    // إضافة حدث للنقر على checkbox لتفعيل/إلغاء تفعيل الرابط
+    checkbox.addEventListener('change', function() {
+        if (checkbox.checked) {
+            filterByLetter(button.textContent.toLowerCase());
+            // تفعيل الـ checkbox فقط لهذا الرابط
+            buttons.forEach((btn) => {
+                const otherCheckbox = btn.querySelector('input[type="checkbox"]');
+                if (otherCheckbox !== checkbox) {
+                    otherCheckbox.checked = false;
+                }
+            });
+        } else {
+            clearFilter();
+        }
     });
 });
 
@@ -160,8 +194,12 @@ function clearFilter() {
         button.style.color = "";
         button.style.backgroundColor = "";
     });
-}
 
+    // إزالة التحديد من جميع الـ checkboxes
+    document.querySelectorAll('#alphabet-buttons input[type="checkbox"]').forEach(checkbox => {
+        checkbox.checked = false;
+    });
+}
                   </script>              
                   </div>
                   </div>
