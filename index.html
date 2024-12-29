@@ -136,18 +136,22 @@ document.querySelectorAll('#alphabet-buttons a').forEach((button, index, buttons
     // إضافة حدث النقر لتفعيل/إلغاء تفعيل الـ checkbox عند النقر على الرابط
     button.addEventListener('click', function(e) {
         e.preventDefault();  // منع التنقل عند النقر على الرابط
-        filterByLetter(button.textContent.toLowerCase());
+        // تغيير حالة الـ checkbox عند النقر على الرابط
+        checkbox.checked = !checkbox.checked;
 
-        // إلغاء تفعيل الـ checkbox لكل الروابط
+        if (checkbox.checked) {
+            filterByLetter(button.textContent.toLowerCase());
+        } else {
+            clearFilter();
+        }
+
+        // إلغاء تفعيل الـ checkbox لجميع الروابط الأخرى
         buttons.forEach((btn) => {
-            const checkbox = btn.querySelector('input[type="checkbox"]');
-            if (checkbox) {
-                checkbox.checked = false;
+            const otherCheckbox = btn.querySelector('input[type="checkbox"]');
+            if (otherCheckbox !== checkbox) {
+                otherCheckbox.checked = false;
             }
         });
-
-        // تفعيل الـ checkbox فقط للرابط الحالي
-        checkbox.checked = true;
     });
 
     // إضافة حدث للنقر على checkbox لتفعيل/إلغاء تفعيل الرابط
@@ -200,6 +204,7 @@ function clearFilter() {
         checkbox.checked = false;
     });
 }
+
                   </script>              
                   </div>
                   </div>
