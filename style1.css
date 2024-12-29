@@ -143,6 +143,11 @@ input {
     }
 }
 
+.xo {
+  display: flex;
+  align-items: center;
+}
+
 #checkbox {
     border-radius: 3px;
     width: 18px; /* يمكنك تغيير الحجم حسب الحاجة */
@@ -718,13 +723,20 @@ input {
 
 /* Everyone */
 .Everyone {
-  height: 52px;
+  /* height: 52px; */
   transition: ease 0.3s;
+  position: relative;
+  top: 20px;
   margin-top: 20px;
   width: 700px;
   max-width: -webkit-fill-available;
   display: flex;
   align-items: end;
+  /* overflow-x: auto; */
+  scrollbar-width: none;
+  padding-top: 20px;
+  margin: 0 auto;
+  justify-content: center;
   box-shadow: 0px -2px 0px #e9edef inset;
 }
 .Everyone-button {
@@ -742,11 +754,23 @@ input {
 }
 .Everyone-button:hover .Everyone-f{
   width: 100%;
-  background-color: #298dff;
+  background-color: #d4dae2;
 }
-.Everyone-button:focus .Everyone-f{
+/* .Everyone-button:focus .Everyone-f{
   width: 100%;
-  background-color: #298dff;
+  background-color: #298dff00;
+} */
+.Everyone-f::before {
+  transition: ease 0.2s;
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  background: #0000;
+}
+.Everyone-button:focus .Everyone-f::before{
+  width: 100%;
+  background: #298dff;
 }
 .Everyone-button ion-icon {
   transition: ease 0.2s;
@@ -765,14 +789,17 @@ input {
   top: 0;
 }
 .Everyone-f {
+  position: relative;
   transition: ease 0.3s;
   position: absolute;
   bottom: 0;
+  display: flex;
+  justify-content: center;
   /* left: 0; */
   height: 2px;
   width: 50%;
   border-radius: 10px;
-  background-color: #298dff;
+  background-color: #298dff00;
 }
 .Everyone-menu {
   animation: gallery 0.2s ease forwards;
@@ -781,7 +808,7 @@ input {
   margin-top: 4px;
   user-select: none;
   display: none;
-  scrollbar-width: thin;
+  scrollbar-width: none;
   max-height: 158px;
     overflow: auto;
     z-index: 14;
@@ -805,8 +832,8 @@ input {
   color: #298dff;
   background-color: #6973840e;
 }
-.Everyone-menu a:focus-within {
-  background-color: #6973840e;
+.Everyone-menu a:active {
+  outline: auto #1884ff;
 }
 .ever-a {
   color: #298dff;
@@ -3121,7 +3148,7 @@ body.night-mode .result-item ion-icon {
     height: 92.3%;
   }
   #uploads-left {
-    display: none;
+    /* display: none; */
   }
   #content-container.fullscreen #uploads-left {
     display: flex;
@@ -3184,7 +3211,7 @@ body.night-mode .result-item ion-icon {
 
   /* //-// */
   @media screen and (max-width:600px) {
-    body button,div,a,.tool2-div,.tool-for-div,.tool-full,.full-screen-div,.history-Upload,.coffee-button {
+    body button,div,a,.tool2-div,.tool-for-div,.tool-full,.full-screen-div,.history-Upload,.coffee-button,.links-Translate,.hiddenButton {
       cursor: context-menu;
     }
     .noons {
@@ -3322,16 +3349,26 @@ body.night-mode .result-item ion-icon {
       max-height: 357px;
       font-size: 17px;
     }
-    .Everyone-menu a {
+    body .Everyone-menu a {
+      cursor: context-menu;
       width: auto;
       padding: 13px 15px;
       justify-content: left;
-      cursor: pointer;
     }
     .Everyone {
       justify-content: center;
       margin-left: 10px;
       margin-right: 10px;
+      display: block;
+      margin: 0;
+      /* margin-top: 20px; */
+      overflow-x: auto;
+      padding-top: 0;
+    }
+    .xo {
+      display: flex;
+      align-items: center;
+      width: max-content;
     }
     .tool {
       bottom: 50%;
