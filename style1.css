@@ -3204,6 +3204,18 @@ body.night-mode .result-item ion-icon {
     font-size: 24px;
   }
 
+  #alphabet-buttons a {
+    overflow: hidden;
+    justify-content: space-between;
+  }
+  #alphabet-buttons a input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    cursor: context-menu;
+  }
+
 
 
 
