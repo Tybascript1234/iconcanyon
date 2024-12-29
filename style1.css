@@ -3223,7 +3223,7 @@ body.night-mode .result-item ion-icon {
 
   /* //-// */
   @media screen and (max-width:600px) {
-    body button,div,a,.tool2-div,.tool-for-div,.tool-full,.full-screen-div,.history-Upload,.coffee-button,.links-Translate,.hiddenButton {
+    body button,div,a,.tool2-div,.tool-for-div,.tool-full,.full-screen-div,.history-Upload,.coffee-button,.links-Translate,.hiddenButton,#toggleDownloadCounts,#downloadCounts div {
       cursor: context-menu;
     }
     .noons {
